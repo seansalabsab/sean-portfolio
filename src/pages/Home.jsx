@@ -417,7 +417,7 @@ const Home = () => {
 
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a
-                      href="/SALABSAB-ResumeS.pdf"
+                      href="SALABSAB-ResumeS.pdf"
                       download="SALABSAB-ResumeS.pdf"
                       className="inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-4 py-2 text-sm sm:text-base font-semibold text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition"
                     >
@@ -425,7 +425,7 @@ const Home = () => {
                     </a>
 
                     <a
-                      href="/SALABSAB-CV.pdf"
+                      href="SALABSAB-CV.pdf"
                       download="SALABSAB-CV.pdf"
                       className="inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-4 py-2 text-sm sm:text-base font-semibold text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition"
                     >
