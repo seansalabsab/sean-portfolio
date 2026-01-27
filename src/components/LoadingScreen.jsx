@@ -70,43 +70,6 @@ const LoadingScreen = () => {
         >
           Loading...
         </motion.p>
-
-        {/* Optional: Animated Dots */}
-        <motion.div 
-          className="flex gap-2 mt-1"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.2,
-                delayChildren: 1.2
-              }
-            }
-          }}
-        >
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              className="w-2 h-2 rounded-full bg-black dark:bg-white"
-              variants={{
-                hidden: { opacity: 0.3, scale: 0.8 },
-                visible: { 
-                  opacity: 1, 
-                  scale: 1,
-                  transition: {
-                    duration: 0.5,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut"
-                  }
-                }
-              }}
-            />
-          ))}
-        </motion.div>
       </div>
     </div>
   )

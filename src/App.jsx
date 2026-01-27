@@ -1,4 +1,5 @@
-import { BrowserRouter } from "react-router-dom"
+// App.jsx
+import { HashRouter } from "react-router-dom"
 import { useEffect, useState } from "react"
 import MainLayout from "./layouts/Mainlayout"
 import AppRoutes from "./routes/AppRoutes"
@@ -11,7 +12,7 @@ function App() {
     // Minimum display time so it feels intentional
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 1500)
+    }, 3000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -21,11 +22,11 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainLayout>
         <AppRoutes />
       </MainLayout>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

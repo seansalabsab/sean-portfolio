@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import ProfileCard from '../components/ProfileCard'
 import GradientText from '../components/GradientText'
+import fbProfile from '../assets/FBprofile.png'
+import profileJpg from '../assets/profile.jpg'
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -135,8 +137,8 @@ const Home = () => {
               handle="seansalabsab"
               status="Online"
               contactText="Contact Me"
-              avatarUrl="/FBprofile.png"
-              miniAvatarUrl="/profile.jpg"
+              avatarUrl={fbProfile}
+              miniAvatarUrl={profileJpg}
               showUserInfo
               enableTilt={true}
               enableMobileTilt={false}
