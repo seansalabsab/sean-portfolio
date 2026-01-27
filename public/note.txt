@@ -1,0 +1,51 @@
+INSTALLATION & SETUP INSTRUCTIONS
+===================================
+
+1. DEPENDENCIES
+   npm install
+
+2. REQUIRED PACKAGES
+   - React 18+
+   - Vite (build tool)
+   - Tailwind CSS (styling)
+   - Motion/Framer Motion (animations)
+   - ESLint (code quality)
+   - React Router (navigation)
+
+3. INSTALLED COMPONENTS
+   - GradientText (@react-bits/GradientText-JS-TW)
+   - ProfileCard (custom component)
+   - Navbar (custom component)
+
+4. TO RUN THE PROJECT
+   npm run dev
+   
+   This will start the development server (typically on http://localhost:3000)
+
+5. TO BUILD FOR PRODUCTION
+   npm run build
+   
+   Generates optimized build in dist/ folder
+
+6. PROJECT STRUCTURE
+   frontend/
+   ├── src/
+   │   ├── components/     (DotGrid, Footer,Navbar, ProfileCard, GradientText, LoadingScreen)
+   │   ├── pages/          (Home, Projects)
+   │   ├── layouts/        (MainLayout)
+   │   ├── lib/            (Utilities)
+   │   ├── App.jsx
+   │   └── main.jsx
+   ├── public/             (Static assets)
+   ├── package.json
+   ├── tailwind.config.js
+   ├── vite.config.js
+   └── index.html
+
+7. KEY FEATURES
+   - Fully responsive design (mobile, tablet, desktop)
+   - Dark mode support
+   - Smooth scroll navigation
+   - Animated gradient text
+   - Project showcase with 16:9 aspect ratio images
+   - Contact section with email and phone
