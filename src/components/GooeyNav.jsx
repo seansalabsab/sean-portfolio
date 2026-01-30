@@ -8,13 +8,17 @@ const GooeyNav = ({
   particleR = 100,
   timeVariance = 300,
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
-  initialActiveIndex = 0
+  initialActiveIndex = 0,
+  activeIndex: controlledActiveIndex = null
 }) => {
   const containerRef = useRef(null);
   const navRef = useRef(null);
   const filterRef = useRef(null);
   const textRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
+  const [internalActiveIndex, setInternalActiveIndex] = useState(initialActiveIndex);
+  
+  // Use controlled active index if provided, otherwise use internal state
+  const activeIndex = controlledActiveIndex !== null ? controlledActiveIndex : internalActiveIndex;
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
   const getXY = (distance, pointIndex, totalPoints) => {
@@ -112,10 +116,13 @@ const GooeyNav = ({
   };
 useEffect(() => {
   if (!navRef.current) return
-  const li = navRef.current.querySelectorAll("li")[initialActiveIndex]
+  const li = navRef.current.querySelectorAll("li")[activeIndex]
   if (!li) return
 
-  setActiveIndex(initialActiveIndex)
+  // Only update internal state if not using controlled active index
+  if (controlledActiveIndex === null) {
+    setInternalActiveIndex(activeIndex)
+  }
   updateEffectPosition(li)
 
   if (filterRef.current) {
@@ -129,7 +136,7 @@ useEffect(() => {
     void textRef.current.offsetWidth
     textRef.current.classList.add("active")
   }
-}, [initialActiveIndex])
+}, [activeIndex])
 
 
   return (
@@ -285,7 +292,13 @@ useEffect(() => {
                 }`}
               >
                 <a
-                  onClick={e => handleClick(e, index)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (item.onClick) {
+                      item.onClick();
+                    }
+                    handleClick(e, index);
+                  }}
                   href={item.href}
                   onKeyDown={e => handleKeyDown(e, index)}
                   className="outline-none py-[0.6em] px-[1em] inline-block"

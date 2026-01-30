@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import GooeyNav from "./GooeyNav"
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -25,6 +26,47 @@ const Navbar = () => {
     window.scrollToSection(sectionRef, offset)
   }
 
+  // Scroll-based active link highlighting
+  useEffect(() => {
+    const sections = [
+      { name: "home", ref: window.sectionRefs?.homeRef },
+      { name: "projects", ref: window.sectionRefs?.projectsRef },
+      { name: "about", ref: window.sectionRefs?.aboutRef },
+      { name: "contact", ref: window.sectionRefs?.contactRef }
+    ]
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionName = sections.find(
+              (section) => section.ref?.current === entry.target
+            )?.name
+            if (sectionName) {
+              setActiveLink(sectionName)
+            }
+          }
+        })
+      },
+      { threshold: 0.3 } // Trigger when 30% of the section is visible
+    )
+
+    // Observe all sections
+    sections.forEach((section) => {
+      if (section.ref?.current) {
+        observer.observe(section.ref.current)
+      }
+    })
+
+    return () => {
+      sections.forEach((section) => {
+        if (section.ref?.current) {
+          observer.unobserve(section.ref.current)
+        }
+      })
+    }
+  }, [])
+
   return (
     <nav className="fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] lg:w-[95%] max-w-6xl z-50 px-2 sm:px-0">
       <div className="bg-white/20 dark:bg-white/10 backdrop-blur-2xl rounded-full border border-white/20 dark:border-white/10 px-3 sm:px-5 py-2 sm:py-2.5 flex justify-between items-center shadow-2xl transition-colors duration-300">
@@ -39,49 +81,35 @@ const Navbar = () => {
         </h1>
         {/* Links and Theme Toggle - Right Section */}
         <div className="flex items-center gap-2 sm:gap-4 lg:gap-8">
-          {/* Links - Desktop */}
-          <ul className="hidden md:flex gap-1 lg:gap-3 text-xs lg:text-sm font-medium">
-            <li 
-              onClick={() => handleNavClick(window.sectionRefs?.homeRef, "home")}
-              className={`px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap ${
-                activeLink === "home"
-                  ? "bg-black/20 dark:bg-white/20 text-black dark:text-white"
-                  : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white"
-              }`}
-            >
-              Home
-            </li>
-            <li 
-              onClick={() => handleNavClick(window.sectionRefs?.projectsRef, "projects")}
-              className={`px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap ${
-                activeLink === "projects"
-                  ? "bg-black/20 dark:bg-white/20 text-black dark:text-white"
-                  : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white"
-              }`}
-            >
-              Projects
-            </li>
-            <li 
-              onClick={() => handleNavClick(window.sectionRefs?.aboutRef, "about")}
-              className={`px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap ${
-                activeLink === "about"
-                  ? "bg-black/20 dark:bg-white/20 text-black dark:text-white"
-                  : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white"
-              }`}
-            >
-              About
-            </li>
-            <li 
-              onClick={() => handleNavClick(window.sectionRefs?.contactRef, "contact")}
-              className={`px-2.5 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap ${
-                activeLink === "contact"
-                  ? "bg-black/20 dark:bg-white/20 text-black dark:text-white"
-                  : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white"
-              }`}
-            >
-              Contact
-            </li>
-          </ul>
+          {/* Links - Desktop with GooeyNav */}
+          <div className="hidden md:block">
+            <GooeyNav
+              items={[
+                {
+                  label: "Home",
+                  href: "#",
+                  onClick: () => handleNavClick(window.sectionRefs?.homeRef, "home")
+                },
+                {
+                  label: "Projects",
+                  href: "#",
+                  onClick: () => handleNavClick(window.sectionRefs?.projectsRef, "projects")
+                },
+                {
+                  label: "About",
+                  href: "#",
+                  onClick: () => handleNavClick(window.sectionRefs?.aboutRef, "about")
+                },
+                {
+                  label: "Contact",
+                  href: "#",
+                  onClick: () => handleNavClick(window.sectionRefs?.contactRef, "contact")
+                }
+              ]}
+              initialActiveIndex={0}
+              activeIndex={["home", "projects", "about", "contact"].indexOf(activeLink)}
+            />
+          </div>
 
           {/* Mobile Menu Button */}
           <button
