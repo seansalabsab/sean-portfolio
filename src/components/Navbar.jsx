@@ -28,42 +28,58 @@ const Navbar = () => {
 
   // Scroll-based active link highlighting
   useEffect(() => {
-    const sections = [
-      { name: "home", ref: window.sectionRefs?.homeRef },
-      { name: "projects", ref: window.sectionRefs?.projectsRef },
-      { name: "about", ref: window.sectionRefs?.aboutRef },
-      { name: "contact", ref: window.sectionRefs?.contactRef }
-    ]
-
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionName = sections.find(
-              (section) => section.ref?.current === entry.target
-            )?.name
-            if (sectionName) {
-              setActiveLink(sectionName)
-            }
+        // Find the section that's most visible
+        const visibleSections = entries.filter(entry => entry.isIntersecting)
+        
+        if (visibleSections.length > 0) {
+          // Sort by intersection ratio to find the most visible
+          visibleSections.sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+          
+          // Determine which section it is
+          if (visibleSections[0].target === window.sectionRefs?.homeRef?.current) {
+            setActiveLink("home")
+          } else if (visibleSections[0].target === window.sectionRefs?.projectsRef?.current) {
+            setActiveLink("projects")
+          } else if (visibleSections[0].target === window.sectionRefs?.aboutRef?.current) {
+            setActiveLink("about")
+          } else if (visibleSections[0].target === window.sectionRefs?.contactRef?.current) {
+            setActiveLink("contact")
           }
-        })
+        }
       },
-      { threshold: 0.3 } // Trigger when 30% of the section is visible
+      { threshold: 0.2 } // Lower threshold for better detection
     )
 
-    // Observe all sections
-    sections.forEach((section) => {
-      if (section.ref?.current) {
-        observer.observe(section.ref.current)
+    // Wait for section refs to be available
+    const checkAndObserve = () => {
+      const sections = [
+        window.sectionRefs?.homeRef?.current,
+        window.sectionRefs?.projectsRef?.current,
+        window.sectionRefs?.aboutRef?.current,
+        window.sectionRefs?.contactRef?.current
+      ].filter(Boolean)
+
+      if (sections.length > 0) {
+        sections.forEach(section => observer.observe(section))
+      } else {
+        // Retry if refs not available yet
+        setTimeout(checkAndObserve, 100)
       }
-    })
+    }
+
+    checkAndObserve()
 
     return () => {
-      sections.forEach((section) => {
-        if (section.ref?.current) {
-          observer.unobserve(section.ref.current)
-        }
-      })
+      const sections = [
+        window.sectionRefs?.homeRef?.current,
+        window.sectionRefs?.projectsRef?.current,
+        window.sectionRefs?.aboutRef?.current,
+        window.sectionRefs?.contactRef?.current
+      ].filter(Boolean)
+      
+      sections.forEach(section => observer.unobserve(section))
     }
   }, [])
 
