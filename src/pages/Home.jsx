@@ -214,10 +214,10 @@ const Home = () => {
                 {/* Image placeholder */}
                 <div className="w-full aspect-video bg-gradient-to-br from-black/10 to-black/20 dark:from-white/10 dark:to-white/20 flex items-center justify-center overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover rounded-l"
+                />
                 </div>
                 {/* Content */}
                 <div className="p-4 sm:p-6 lg:p-8">
