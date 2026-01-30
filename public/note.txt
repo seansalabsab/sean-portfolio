@@ -1,5 +1,6 @@
 INSTALLATION & SETUP INSTRUCTIONS
 ===================================
+Portfolio Link: https://seansalabsab.github.io/sean-portfolio/
 
 1. DEPENDENCIES
    npm install
@@ -16,6 +17,7 @@ INSTALLATION & SETUP INSTRUCTIONS
    - GradientText (@react-bits/GradientText-JS-TW)
    - ProfileCard (custom component)
    - Navbar (custom component)
+   - npx shadcn@latest add @react-bits/GooeyNav-JS-TW
 
 4. TO RUN THE PROJECT
    npm run dev

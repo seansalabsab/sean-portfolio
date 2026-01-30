@@ -19,7 +19,7 @@ const Home = () => {
       title: "THESIS/Capstone: 3n8 Analytics",
       description: "3n8 Analytics is an AI-powered web application designed to help users analyze and visualize complex datasets with ease. Built using React for the frontend and Tailwind CSS for styling, the platform offers an intuitive interface for data exploration. Key features include interactive charts, real-time data updates, and customizable dashboards. The integration of AI algorithms allows users to gain deeper insights through predictive analytics and automated data processing. This project showcases my skills in modern web development, data visualization, and AI integration.",
       tags: ["Vite+React", "JavaScript", "TailwindCSS", "Python Flask", "AI Integration", "Firebase"],
-      image: "https://via.placeholder.com/400x250?text=Project+1",
+      image: "public/3n8SS.png",
       repository: "https://github.com/PapiAiron/Causal-Forecasting-and-Simulation-for-3N8-Consumer-Consumer-Goods-Trading.git",
     },
     {
@@ -27,7 +27,7 @@ const Home = () => {
       title: "Note Nudge",
       description: "Note Nudge is a productivity web application designed to help users manage their tasks and notes efficiently. Built with React and styled using Tailwind CSS, the app features a clean and user-friendly interface. Key functionalities include creating, editing, and organizing notes, setting reminders, and categorizing tasks with tags. The application also supports dark mode for comfortable use in low-light environments. Note Nudge aims to enhance user productivity by providing a seamless experience for task management and note-taking.",
       tags: ["React", "Tailwind", "Firebase"],
-      image: "https://via.placeholder.com/400x250?text=Project+2",
+      image: "public/NotNudgeSS.png",
       repository: "https://github.com/seansalabsab/Taskdumpster.git",
     },
     {
@@ -35,7 +35,7 @@ const Home = () => {
       title: "Botani-Snap AI",
       description: "Botani-Snap AI is an innovative web application that leverages AI technology to provide users with a seamless experience for plant identification and care. Built using React for the frontend and Tailwind CSS for styling, the platform offers an intuitive interface for users to upload images of plants and receive detailed information about their species, care requirements, and potential health issues. The application integrates advanced image recognition algorithms to accurately identify plant species and provides personalized recommendations based on user preferences and environmental conditions.",
       tags: ["React", "JavaScript", "Firebase", "Python", "AI Integration"],
-      image: "https://via.placeholder.com/400x250?text=Project+3",
+      image: "public/BotaniSnapSS.png",
       repository: "https://github.com/yourprofile/project3",
     },
     {
@@ -43,7 +43,7 @@ const Home = () => {
       title: "FurPal",
       description: "FurPal is a pet care trackin Android application designed to help pet owners manage their pets' health and well-being. Built with Android Studio, the app features a clean and user-friendly interface. Key functionalities include creating, editing, and organizing pet profiles, setting reminders for vaccinations and check-ups, and categorizing pets with tags.",
       tags: ["Android Studio", "Java", "SQLite"],
-      image: "https://via.placeholder.com/400x250?text=Project+4",
+      image: "public/FurPalSS.png",
       repository: "https://play.google.com/store/apps/details?id=com.groupfour.furpal&hl=en",
     },
   ]
