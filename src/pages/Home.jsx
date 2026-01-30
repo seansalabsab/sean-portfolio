@@ -11,6 +11,7 @@ import furPal from "../assets/FurPalSS.png"
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(false)
+  const [selectedProject, setSelectedProject] = useState(null)
   const homeRef = useRef(null)
   const projectsRef = useRef(null)
   const aboutRef = useRef(null)
@@ -213,10 +214,16 @@ const Home = () => {
               >
                 {/* Image placeholder */}
                 <div className="w-full aspect-video bg-gradient-to-br from-black/10 to-black/20 dark:from-white/10 dark:to-white/20 flex items-center justify-center overflow-hidden">
-                  <img
+                <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover rounded-l"
+                  onClick={() => setSelectedProject(project)}
+                  className="
+                    w-full h-full object-cover
+                    cursor-pointer
+                    transition-transform duration-300
+                    hover:scale-105
+                  "
                 />
                 </div>
                 {/* Content */}
@@ -442,6 +449,67 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+      {selectedProject && (
+        <motion.div
+          className="
+            fixed inset-0 z-[9999]
+            flex items-center justify-center
+            bg-black/70 dark:bg-black/80
+            backdrop-blur-sm
+            px-4
+          "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedProject(null)}
+        >
+          <motion.div
+            className="
+              relative
+              max-w-5xl w-full
+              bg-white dark:bg-black
+              rounded-2xl
+              overflow-hidden
+              shadow-2xl
+            "
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="
+                absolute top-4 right-4 z-10
+                rounded-full
+                bg-black/60 dark:bg-white/20
+                text-white dark:text-white
+                w-9 h-9
+                flex items-center justify-center
+                hover:scale-110 transition
+              "
+            >
+              ✕
+            </button>
+
+            {/* Image */}
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              className="w-full max-h-[80vh] object-contain bg-black"
+            />
+
+            {/* Optional caption */}
+            <div className="p-4 text-center">
+              <h3 className="text-lg font-semibold text-black dark:text-white">
+                {selectedProject.title}
+              </h3>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </>
   )
 }
