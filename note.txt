@@ -16,8 +16,8 @@ Portfolio Link: https://seansalabsab.github.io/sean-portfolio/
 3. INSTALLED COMPONENTS
    - GradientText (@react-bits/GradientText-JS-TW)
    - ProfileCard (custom component)
-   - Navbar (custom component)
-   - npx shadcn@latest add @react-bits/GooeyNav-JS-TW
+    - Navbar (custom component using GooeyNav)
+    - GooeyNav (@react-bits/GooeyNav-JS-TW) - Interactive navbar with particle effects
 
 4. TO RUN THE PROJECT
    npm run dev
@@ -47,7 +47,8 @@ Portfolio Link: https://seansalabsab.github.io/sean-portfolio/
 7. KEY FEATURES
    - Fully responsive design (mobile, tablet, desktop)
    - Dark mode support
-   - Smooth scroll navigation
+    - Smooth scroll navigation
+    - Scroll-based active link highlighting
    - Animated gradient text
    - Project showcase with 16:9 aspect ratio images
    - Contact section with email and phone
