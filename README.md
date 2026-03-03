@@ -1,21 +1,54 @@
-<<<<<<< HEAD
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+===================================
+Portfolio Link: https://seansalabsab.github.io/sean-portfolio/
 
-Currently, two official plugins are available:
+1. DEPENDENCIES
+   npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. REQUIRED PACKAGES
+   - React 18+
+   - Vite (build tool)
+   - Tailwind CSS (styling)
+   - Motion/Framer Motion (animations)
+   - ESLint (code quality)
+   - React Router (navigation)
 
-## React Compiler
+3. INSTALLED COMPONENTS
+   - GradientText (@react-bits/GradientText-JS-TW)
+   - ProfileCard (custom component)
+    - Navbar (custom component using GooeyNav)
+    - GooeyNav (@react-bits/GooeyNav-JS-TW) - Interactive navbar with particle effects
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. TO RUN THE PROJECT
+   npm run dev
+   
+   This will start the development server (typically on http://localhost:3000)
 
-## Expanding the ESLint configuration
+5. TO BUILD FOR PRODUCTION
+   npm run build
+   
+   Generates optimized build in dist/ folder
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# sean-portfolio
-My personal portfolio built with react and Tailwindcss
->>>>>>> 110b504134d5859c95169f7ff01f8e9387cee072
+6. PROJECT STRUCTURE
+   frontend/
+   ├── src/
+   │   ├── components/     (DotGrid, Footer,Navbar, ProfileCard, GradientText, LoadingScreen)
+   │   ├── pages/          (Home, Projects)
+   │   ├── layouts/        (MainLayout)
+   │   ├── lib/            (Utilities)
+   │   ├── App.jsx
+   │   └── main.jsx
+   ├── public/             (Static assets)
+   ├── package.json
+   ├── tailwind.config.js
+   ├── vite.config.js
+   └── index.html
+
+7. KEY FEATURES
+   - Fully responsive design (mobile, tablet, desktop)
+   - Dark mode support
+    - Smooth scroll navigation
+    - Scroll-based active link highlighting
+   - Animated gradient text
+   - Project showcase with 16:9 aspect ratio images
+   - Contact section with email and phone
