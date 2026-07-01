@@ -8,6 +8,7 @@ import threeN8 from "../assets/3n8SS.png"
 import noteNudge from "../assets/NotNudgeSS.png"
 import botaniSnap from "../assets/BotaniSnapSS.png"
 import furPal from "../assets/FurPalSS.png"
+import tala from "../assets/tala.png"
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -19,8 +20,16 @@ const Home = () => {
 
   // Update this array with your own projects
   const projects = [
-    {
+      {
       id: 1,
+      title: "TALA.sys",
+      description: "TALA.sys is a comprehensive system designed to streamline and optimize various operational processes. Built with modern technologies, the system offers a robust and scalable solution for managing complex workflows. Key features include real-time monitoring, automated reporting, and seamless integration with existing tools and platforms. This project demonstrates my ability to design and implement efficient solutions for real-world problems.",
+      tags: ["React", "Vite", "Tailwindcss","Framer Motion","ESLint","React Router", "MongoDB", "Express"],
+      image: tala,
+      repository: "https://github.com/yourusername/TALA.sys.git",
+    },
+    {
+      id: 2,
       title: "THESIS/Capstone: 3n8 Analytics",
       description: "3n8 Analytics is an AI-powered web application designed to help users analyze and visualize complex datasets with ease. Built using React for the frontend and Tailwind CSS for styling, the platform offers an intuitive interface for data exploration. Key features include interactive charts, real-time data updates, and customizable dashboards. The integration of AI algorithms allows users to gain deeper insights through predictive analytics and automated data processing. This project showcases my skills in modern web development, data visualization, and AI integration.",
       tags: ["Vite+React", "JavaScript", "TailwindCSS", "Python Flask", "AI Integration", "Firebase"],
@@ -28,7 +37,7 @@ const Home = () => {
       repository: "https://github.com/PapiAiron/Causal-Forecasting-and-Simulation-for-3N8-Consumer-Consumer-Goods-Trading.git",
     },
     {
-      id: 2,
+      id: 3,
       title: "Note Nudge",
       description: "Note Nudge is a productivity web application designed to help users manage their tasks and notes efficiently. Built with React and styled using Tailwind CSS, the app features a clean and user-friendly interface. Key functionalities include creating, editing, and organizing notes, setting reminders, and categorizing tasks with tags. The application also supports dark mode for comfortable use in low-light environments. Note Nudge aims to enhance user productivity by providing a seamless experience for task management and note-taking.",
       tags: ["React", "Tailwind", "Firebase"],
@@ -36,7 +45,7 @@ const Home = () => {
       repository: "https://github.com/seansalabsab/Taskdumpster.git",
     },
     {
-      id: 3,
+      id: 4,
       title: "Botani-Snap AI",
       description: "Botani-Snap AI is an innovative web application that leverages AI technology to provide users with a seamless experience for plant identification and care. Built using React for the frontend and Tailwind CSS for styling, the platform offers an intuitive interface for users to upload images of plants and receive detailed information about their species, care requirements, and potential health issues. The application integrates advanced image recognition algorithms to accurately identify plant species and provides personalized recommendations based on user preferences and environmental conditions.",
       tags: ["React", "JavaScript", "Firebase", "Python", "AI Integration"],
@@ -44,7 +53,7 @@ const Home = () => {
       repository: "https://github.com/yourprofile/project3",
     },
     {
-      id: 4,
+      id: 5,
       title: "FurPal",
       description: "FurPal is a pet care trackin Android application designed to help pet owners manage their pets' health and well-being. Built with Android Studio, the app features a clean and user-friendly interface. Key functionalities include creating, editing, and organizing pet profiles, setting reminders for vaccinations and check-ups, and categorizing pets with tags.",
       tags: ["Android Studio", "Java", "SQLite"],
@@ -428,8 +437,8 @@ const Home = () => {
 
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a
-                      href="SALABSAB-ResumeS.pdf"
-                      download="SALABSAB-ResumeS.pdf"
+                      href="SALABSAB-07-01_Resume.pdf"
+                      download="SALABSAB-07-01_Resume.pdf"
                       className="inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-4 py-2 text-sm sm:text-base font-semibold text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition"
                     >
                       Download Resume
